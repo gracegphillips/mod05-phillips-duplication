@@ -1,63 +1,62 @@
 from flask import Blueprint, render_template, request, url_for, redirect, flash
 from app.db_connect import get_db
 
-runners = Blueprint('runners', __name__)
 
 
-@runners.route('/runner', methods=['GET', 'POST'])
-def runner():
+animals = Blueprint('animals', __name__)
+
+@animals.route('/animal', methods=['GET', 'POST'])
+def animal():
     db = get_db()
     cursor = db.cursor()
 
-    # Handle POST request to add a new runner
+    # Handle POST request to add a new animal
     if request.method == 'POST':
-        first_name = request.form['first_name']
-        last_name = request.form['last_name']
+        animal_name = request.form['animal_name']
+        animal_type = request.form['animal_type']
 
-        # Insert the new runner into the database
-        cursor.execute('INSERT INTO runners (first_name, last_name) VALUES (%s, %s)', (first_name, last_name))
+        # Insert the new animal into the database
+        cursor.execute('INSERT INTO animals (animal_name, animal_type) VALUES (%s, %s)', (animal_name, animal_type))
         db.commit()
 
-        flash('New runner added successfully!', 'success')
-        return redirect(url_for('runners.runner'))
+        flash('New animal added successfully!', 'success')
+        return redirect(url_for('animals.animal'))
 
-    # Handle GET request to display all runners
-    cursor.execute('SELECT * FROM runners')
-    all_runners = cursor.fetchall()
-    return render_template('runners.html', all_runners=all_runners)
+    # Handle GET request to display all animals
+    cursor.execute('SELECT * FROM animals')
+    all_animals = cursor.fetchall()
+    return render_template('animals.html', all_animals=all_animals)
 
-
-@runners.route('/update_runner/<int:runner_id>', methods=['GET', 'POST'])
-def update_runner(runner_id):
+@animals.route('/update_animal/<int:animal_id>', methods=['GET', 'POST'])
+def update_animal(animal_id):
     db = get_db()
     cursor = db.cursor()
 
     if request.method == 'POST':
-        # Update the runner's details
-        first_name = request.form['first_name']
-        last_name = request.form['last_name']
+        # Update the animal's details
+        animal_name = request.form['animal_name']
+        animal_type = request.form['animal_type']
 
-        cursor.execute('UPDATE runners SET first_name = %s, last_name = %s WHERE runner_id = %s',
-                       (first_name, last_name, runner_id))
+        cursor.execute('UPDATE animals SET animal_name = %s, animal_type = %s WHERE animal_id = %s',
+                       (animal_name, animal_type, animal_id))
         db.commit()
 
-        flash('Runner updated successfully!', 'success')
-        return redirect(url_for('runners.runner'))
+        flash('Animal updated successfully!', 'success')
+        return redirect(url_for('animals.animal'))
 
-    # GET method: fetch runner's current data for pre-populating the form
-    cursor.execute('SELECT * FROM runners WHERE runner_id = %s', (runner_id,))
-    runner = cursor.fetchone()
-    return render_template('update_runner.html', runner=runner)
+    # GET method: fetch animal's current data for pre-populating the form
+    cursor.execute('SELECT * FROM animals WHERE animal_id = %s', (animal_id,))
+    animal = cursor.fetchone()
+    return render_template('update_animal.html', animal=animal)
 
-
-@runners.route('/delete_runner/<int:runner_id>', methods=['POST'])
-def delete_runner(runner_id):
+@animals.route('/delete_animal/<int:animal_id>', methods=['POST'])
+def delete_animal(animal_id):
     db = get_db()
     cursor = db.cursor()
 
-    # Delete the runner
-    cursor.execute('DELETE FROM runners WHERE runner_id = %s', (runner_id,))
+    # Delete the animal
+    cursor.execute('DELETE FROM animals WHERE animal_id = %s', (animal_id,))
     db.commit()
 
-    flash('Runner deleted successfully!', 'danger')
-    return redirect(url_for('runners.runner'))
+    flash('Animal deleted successfully!', 'danger')
+    return redirect(url_for('animals.animal'))
