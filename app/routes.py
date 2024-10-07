@@ -21,6 +21,9 @@ def services():
 def information():
     return render_template('information.html')
 
+@app.route('/contact')
+def contact():
+    return render_template('contact.html')
 
 
 
