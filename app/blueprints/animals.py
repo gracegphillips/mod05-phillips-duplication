@@ -10,6 +10,7 @@ def animal():
     db = get_db()
     cursor = db.cursor()
 
+
     # Handle POST request to add a new animal
     if request.method == 'POST':
         animal_name = request.form['animal_name']
