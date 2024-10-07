@@ -1,15 +1,13 @@
+# app/blueprints/animals.py
 from flask import Blueprint, render_template, request, url_for, redirect, flash
 from app.db_connect import get_db
 
-
-
 animals = Blueprint('animals', __name__)
 
-@animals.route('/animal', methods=['GET', 'POST'])
+@animals.route('/animals', methods=['GET', 'POST'])
 def animal():
     db = get_db()
     cursor = db.cursor()
-
 
     # Handle POST request to add a new animal
     if request.method == 'POST':
