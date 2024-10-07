@@ -2,16 +2,17 @@ import pymysql
 import pymysql.cursors
 from flask import g
 
+
 def get_db():
     if 'db' not in g or not is_connection_open(g.db):
         print("Re-establishing closed database connection.")
         g.db = pymysql.connect(
             # Database configuration
             # Configure MySQL
-            host = 'ysp9sse09kl0tzxj.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
-            user = 'omlftffrjeogfyiz',
-            password = 'v5koskzhmheuiihh',
-            database = 'adyqrjdspobi3hy2',
+            host = 'o677vxfi8ok6exrd.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
+            user = 'bw53qbbngzrmmuho',
+            password = 't7juf3woiy3jm39v',
+            database = 'eqg9hymkoppozahj',
             cursorclass=pymysql.cursors.DictCursor  # Set the default cursor class to DictCursor
         )
     return g.db
