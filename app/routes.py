@@ -17,5 +17,10 @@ def animals():
 def services():
     return render_template('services.html')
 
+@app.route('/information')
+def information():
+    return render_template('information.html')
+
+
 
 
