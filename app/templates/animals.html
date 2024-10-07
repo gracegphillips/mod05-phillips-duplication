@@ -20,34 +20,34 @@
         </div>
     </form>
 
-    <!-- Table to display all animals -->
-    <table class="table table-striped table-bordered">
-        <thead class="thead-dark">
-            <tr>
-                <th scope="col">Animal ID</th>
-                <th scope="col">Animal Name</th>
-                <th scope="col">Animal Type</th>
-                <th scope="col">Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for animal in all_animals %}
-            <tr>
-                <td>{{ animal.animal_id }}</td>
-                <td>{{ animal.animal_name }}</td>
-                <td>{{ animal.animal_type }}</td>
-                <td>
-                    <!-- Update button -->
-                    <a href="{{ url_for('animals.update_animal', animal_id=animal.animal_id) }}" class="btn btn-warning btn-sm">Update</a>
-                    <!-- Delete button -->
-                    <form action="{{ url_for('animals.delete_animal', animal_id=animal.animal_id) }}" method="POST" style="display:inline;">
-                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this animal?');">Delete</button>
-                    </form>
-                </td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+<!-- Table to display all animals -->
+<table class="table table-striped table-bordered table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Animal ID</th>
+            <th scope="col">Animal Name</th>
+            <th scope="col">Animal Type</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for animal in all_animals %}
+        <tr>
+            <td>{{ animal.animal_id }}</td>
+            <td>{{ animal.animal_name }}</td>
+            <td>{{ animal.animal_type }}</td>
+            <td>
+                <!-- Update button -->
+                <a href="{{ url_for('animals.update_animal', animal_id=animal.animal_id) }}" class="btn btn-warning btn-sm">Update</a>
+                <!-- Delete button -->
+                <form action="{{ url_for('animals.delete_animal', animal_id=animal.animal_id) }}" method="POST" style="display:inline;">
+                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this animal?');">Delete</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
 </div>
 
 {% endblock %}
