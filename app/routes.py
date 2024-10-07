@@ -13,4 +13,9 @@ def about():
 def animals():
     return render_template('animals.html')
 
+@app.route('/services')
+def services():
+    return render_template('services.html')
+
+
 
