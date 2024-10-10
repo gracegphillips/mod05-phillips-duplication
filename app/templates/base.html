@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Grace's Animal Services</title>
+    <title>Grace's Book Store</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
+            background-color: #E0F7FA;
         }
 
          h1 {
@@ -67,7 +67,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Grace's Animal Services</a>
+    <a class="navbar-brand" href="#">Grace's Book Store</a>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
@@ -80,13 +80,16 @@
           <a class="nav-link" href="{{ url_for('services') }}">Services</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{ url_for('information') }}">Information</a>
+          <a class="nav-link" href="{{ url_for('reviews') }}">Reviews</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{{ url_for('contact') }}">Contact</a>
         </li>
           <li class="nav-item">
-          <a class="nav-link" href="{{ url_for('animals') }}">Animals</a>
+          <a class="nav-link" href="{{ url_for('books') }}">Books</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('authors') }}">Authors</a>
         </li>
 
       </ul>
@@ -102,6 +105,6 @@
 </body>
 
 <footer class="text-center mt-4">
-    <p class="footer-text">Grace's Animal Services | Copyright 2024</p>
+    <p class="footer-text">Grace's Book Store | Copyright 2024</p>
 </footer>
 </html>

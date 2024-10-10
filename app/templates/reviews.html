@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Book Information</h1>
+
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-4 text-center">
+            <div class="card mb-4 shadow-sm box">
+                <div class="card-body">
+                    <h5 class="card-title">John Doe</h5>
+                    <p class="card-text">"Excellent service! The store associate was very helpful when I was in need of a new book. She knew exactly where everything was!."</p>
+                    <div class="d-flex justify-content-center">
+                        <span class="text-warning">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 text-center">
+            <div class="card mb-4 shadow-sm box">
+                <div class="card-body">
+                    <h5 class="card-title">Jane Smith</h5>
+                    <p class="card-text">"Great experience! There is a wide variety of books to choose from."</p>
+                    <div class="d-flex justify-content-center">
+                        <span class="text-warning">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 text-center">
+            <div class="card mb-4 shadow-sm box">
+                <div class="card-body">
+                    <h5 class="card-title">Emily Johnson</h5>
+                    <p class="card-text">"Highly recommend! I look forward to coming to Grace's Book Store for book club every week."</p>
+                    <div class="d-flex justify-content-center">
+                        <span class="text-warning">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .box {
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        background-color: #f8f9fa;
+        padding: 15px;
+    }
+</style>
+
+
+
+
+{% endblock %}
