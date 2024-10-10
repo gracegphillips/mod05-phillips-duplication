@@ -21,9 +21,6 @@ def services():
 def reviews():
     return render_template('reviews.html')
 
-@app.route('/contact')
-def contact():
-    return render_template('contact.html')
 
 @app.route('/authors')
 def authors():
