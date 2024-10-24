@@ -1,7 +1,17 @@
 from flask import Blueprint, render_template, request, url_for, redirect, flash
 from app.db_connect import get_db
+from app.functions import filter_movies
 
 movies = Blueprint('movies', __name__)
+
+
+@movies.route('/filter_by_title', methods=['POST'])
+def filter_by_title():
+    title = request.form.get('title')
+    filtered_movies = filter_movies(title=title)
+    return render_template('filters.html', all_movies=filtered_movies)
+
+
 
 @movies.route('/movies', methods=['GET', 'POST'])
 def movie():
@@ -12,6 +22,7 @@ def movie():
     if request.method == 'POST':
         title = request.form['title']
         release_year = request.form['release_year']
+
 
         # Insert the new movie into the database
         cursor.execute('INSERT INTO movies (title, release_year) VALUES (%s, %s)',

@@ -6,10 +6,10 @@ app = create_app()
 app.secret_key = 'your-secret'  # Replace with an environment variable
 
 # Register Blueprints
-from app.blueprints.books import books
+from app.blueprints.genres import genres
 from app.blueprints.movies import movies
 
-app.register_blueprint(books)
+app.register_blueprint(genres)
 app.register_blueprint(movies)
 
 

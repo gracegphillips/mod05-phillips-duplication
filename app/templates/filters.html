@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Filter Movies by Title</h1>
+
+    <!-- Form to filter movies by title -->
+    <form method="POST" action="{{ url_for('movies.filter_by_title') }}" class="mb-4">
+        <div class="form-row align-items-center">
+            <div class="col-sm-3 my-1">
+                <input type="text" class="form-control" name="title" placeholder="Title">
+            </div>
+            <div class="col-auto my-1">
+                <button type="submit" class="btn btn-primary">Filter by Title</button>
+            </div>
+        </div>
+    </form>
+
+    <!-- Table to display filtered movies -->
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Release Year</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for movie in all_movies %}
+                <tr>
+                    <td>{{ movie.id }}</td>
+                    <td>{{ movie.title }}</td>
+                    <td>{{ movie.release_year }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock %}
