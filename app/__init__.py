@@ -7,10 +7,10 @@ app.secret_key = 'your-secret'  # Replace with an environment variable
 
 # Register Blueprints
 from app.blueprints.books import books
-from app.blueprints.authors import authors
+from app.blueprints.movies import movies
 
 app.register_blueprint(books)
-app.register_blueprint(authors)
+app.register_blueprint(movies)
 
 
 from . import routes

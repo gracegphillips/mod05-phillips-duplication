@@ -22,9 +22,9 @@ def reviews():
     return render_template('reviews.html')
 
 
-@app.route('/authors')
-def authors():
-    return render_template('authors.html')
+@app.route('/movies')
+def movies():
+    return render_template('movies.html')
 
 
 
