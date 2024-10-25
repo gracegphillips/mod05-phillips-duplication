@@ -18,7 +18,9 @@ def movies():
 def filters():
     return render_template('filters.html')
 
-
+@app.route('/movie_genres')
+def movie_genres():
+    return render_template('movie_genres.html')
 
 
 
