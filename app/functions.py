@@ -28,7 +28,8 @@ def filter_movies_by_genre(genre_id):
     db = get_db()
     cursor = db.cursor()
     query = '''
-    SELECT movies.*, movie_genres.genre_id FROM movies
+    SELECT movies.id, movies.title, movies.release_year, movie_genres.genre_id 
+    FROM movies
     JOIN movie_genres ON movies.id = movie_genres.movie_id
     WHERE movie_genres.genre_id = %s
     '''
